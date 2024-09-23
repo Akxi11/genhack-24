@@ -31,7 +31,25 @@ export default function Timeline() {
                 go down
             </p>
             <p>Refer to timeline given on grp as discussed</p>*/}
-        </div
-                <div className="w-full rounded-3xl flex flex-col items-center justify-center bg-fuchsia-400 border-white border-2 py-8 ">
+         <div className="relative w-3/4">
+                {/* Vertical Line */}
+                <div className="absolute left-10 top-0 h-full w-1 bg-white"></div>
+
+                {events.map(event => (
+                    <div key={event.id} className="flex items-start mb-10" data-aos="fade-up">
+                        {/* Dot */}
+                        <div className="relative z-10 flex-shrink-0 w-5 h-5 bg-white rounded-full border-4 border-fuchsia-400"></div>
+
+                        {/* Content */}
+                        <div className="ml-8 p-6 bg-white shadow-lg rounded-xl">
+                            <h3 className="text-xl font-semibold">{event.title}</h3>
+                            <span className="block text-gray-500">{event.date}</span>
+                            <p className="mt-2 text-gray-600">{event.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+  
     );
 }
